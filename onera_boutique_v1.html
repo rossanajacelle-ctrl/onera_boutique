@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4eee6">
+<title>ONERA — Everyday, beautifully chosen.</title>
+<style>
+:root{--cream:#f5f0e8;--paper:#fffdf9;--brown:#4c3528;--muted:#8b7868;--line:#e6ddd2;--accent:#b18b68}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--brown);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.top{background:#4c3528;color:#fff9f1;text-align:center;padding:9px 15px;font-size:11px;letter-spacing:.12em}
+header{max-width:1180px;margin:auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-family:Georgia,serif;font-size:30px;letter-spacing:.19em;font-weight:500}.tag{font-family:Georgia,serif;font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:3px}
+nav{display:flex;gap:25px;font-size:12px;letter-spacing:.09em;text-transform:uppercase}
+.actions{display:flex;align-items:center;gap:12px}.lang,.cartbtn{border:1px solid var(--line);background:transparent;color:var(--brown);padding:9px 12px;font-size:11px;letter-spacing:.08em}
+.hero{max-width:1180px;margin:8px auto 55px;padding:0 24px}
+.hero-inner{min-height:440px;border-radius:4px;background:linear-gradient(110deg,rgba(42,29,21,.67),rgba(42,29,21,.08)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85') center/cover;display:flex;align-items:center;padding:clamp(28px,7vw,86px);color:#fffaf3}
+.kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,7vw,76px);line-height:1.02;max-width:560px;margin:0 0 18px}.hero p{font-family:Georgia,serif;font-size:17px;line-height:1.6;max-width:420px;color:#f5eade}
+.cta{display:inline-block;background:#f7f0e7;color:var(--brown);padding:14px 22px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin-top:16px;border:0}
+.section{max-width:1180px;margin:0 auto;padding:0 24px 65px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:24px}.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}h2{font:400 clamp(28px,4vw,39px) Georgia,serif;margin:8px 0 0}.intro{font:15px/1.7 Georgia,serif;color:var(--muted);max-width:530px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.filter{border:1px solid var(--line);background:transparent;padding:9px 13px;color:var(--muted);font-size:11px}.filter.active{background:var(--brown);border-color:var(--brown);color:white}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.product{background:var(--paper);border:1px solid var(--line);padding:10px}.photo{height:210px;display:grid;place-items:center;position:relative;overflow:hidden;background:var(--tone,#e9dfd2)}.photo span{font-size:66px;filter:drop-shadow(0 8px 8px #5b463322)}.product small{display:block;color:var(--muted);font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin:15px 0 7px}.product h3{font:19px Georgia,serif;font-weight:400;margin:0 0 7px}.product p{font-size:12px;line-height:1.5;color:var(--muted);min-height:36px;margin:0 0 13px}.product-foot{display:flex;justify-content:space-between;align-items:center;gap:8px}.price{font-size:11px;color:var(--muted)}.add{border:1px solid var(--brown);background:transparent;color:var(--brown);padding:9px 10px;font-size:10px;letter-spacing:.08em}
+.story{background:#e9dfd2;padding:45px 30px;text-align:center;margin-bottom:60px}.story h2{margin-bottom:13px}.story p{font:16px/1.8 Georgia,serif;color:#796756;max-width:650px;margin:0 auto}
+footer{background:#4c3528;color:#f7eee4;padding:38px 24px}.foot-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.foot-logo{font:28px Georgia,serif;letter-spacing:.18em}.foot-note{font:13px/1.7 Georgia,serif;color:#d8c8b8;max-width:340px}.foot-links{display:flex;gap:18px;align-items:center;font-size:11px;letter-spacing:.08em}
+.overlay{position:fixed;inset:0;background:#1c140f88;display:none;justify-content:flex-end;z-index:10}.overlay.open{display:flex}.drawer{background:var(--paper);width:min(420px,100%);height:100%;padding:25px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer h2{font-size:28px}.close{border:0;background:none;font-size:24px;color:var(--brown)}.cartline{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:13px}.qty{display:flex;gap:8px;align-items:center}.qty button{border:1px solid var(--line);background:white;padding:3px 8px}.checkout{display:block;text-align:center;background:var(--brown);color:white;padding:15px;margin-top:22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.hint{font-size:11px;line-height:1.6;color:var(--muted);margin-top:12px}
+@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}nav{display:none}.hero-inner{min-height:390px}}
+@media(max-width:480px){header{padding:17px}.logo{font-size:25px}.hero,.section{padding-left:16px;padding-right:16px}.hero{margin-bottom:40px}.products{gap:10px}.photo{height:160px}.product{padding:8px}.product h3{font-size:17px}.cartbtn{padding:8px}.story{padding:35px 20px}}
+</style>
+</head>
+<body>
+<div class="top" id="announcement">A LITTLE ELEGANCE IN EVERYDAY LIFE · BIENVENUE CHEZ ONERA</div>
+<header>
+  <a href="#" aria-label="ONERA accueil"><div class="logo">ONERA</div><div class="tag">Everyday, beautifully chosen.</div></a>
+  <nav><a href="#shop" data-fr="Boutique" data-en="Shop">Boutique</a><a href="#story" data-fr="Notre univers" data-en="Our story">Notre univers</a><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></nav>
+  <div class="actions"><button class="lang" id="langBtn" onclick="toggleLang()">EN</button><button class="cartbtn" onclick="openCart()">PANIER (<span id="count">0</span>)</button></div>
+</header>
+<main>
+<section class="hero"><div class="hero-inner"><div><div class="kicker" data-fr="L'essentiel, avec élégance" data-en="Everyday essentials, thoughtfully chosen">L'essentiel, avec élégance</div><h1 data-fr="Les petits détails font toute la différence." data-en="The little details make all the difference.">Les petits détails font toute la différence.</h1><p data-fr="Découvrez une sélection d'accessoires et d'essentiels pour embellir votre quotidien." data-en="Discover a thoughtful edit of accessories and everyday essentials, chosen to bring a little beauty to your day.">Découvrez une sélection d'accessoires et d'essentiels pour embellir votre quotidien.</p><a class="cta" href="#shop" data-fr="Découvrir la boutique" data-en="Explore the shop">Découvrir la boutique</a></div></div></section>
+<section class="section" id="shop">
+  <div class="section-head"><div><div class="eyebrow" data-fr="La sélection ONERA" data-en="The ONERA edit">La sélection ONERA</div><h2 data-fr="À découvrir" data-en="Discover our edit">À découvrir</h2></div><div class="intro" data-fr="Des idées simples, jolies et pratiques pour accompagner chaque journée." data-en="Simple, beautiful and practical finds for every day.">Des idées simples, jolies et pratiques pour accompagner chaque journée.</div></div>
+  <div class="filters"><button class="filter active" data-cat="all" onclick="filterProducts('all',this)" data-fr="Tout voir" data-en="All">Tout voir</button><button class="filter" data-cat="accessories" onclick="filterProducts('accessories',this)" data-fr="Accessoires" data-en="Accessories">Accessoires</button><button class="filter" data-cat="lifestyle" onclick="filterProducts('lifestyle',this)" data-fr="Lifestyle" data-en="Lifestyle">Lifestyle</button><button class="filter" data-cat="everyday" onclick="filterProducts('everyday',this)" data-fr="Essentiels" data-en="Everyday">Essentiels</button></div>
+  <div class="products" id="products"></div>
+</section>
+<section class="section" id="story"><div class="story"><div class="eyebrow" data-fr="L'esprit ONERA" data-en="The ONERA spirit">L'esprit ONERA</div><h2 data-fr="Everyday, beautifully chosen." data-en="Everyday, beautifully chosen.">Everyday, beautifully chosen.</h2><p data-fr="ONERA célèbre les objets qui rendent le quotidien un peu plus beau : des accessoires choisis avec soin, des idées utiles et des détails qui font plaisir. Notre aventure commence ici." data-en="ONERA celebrates the little things that make everyday life feel more beautiful: thoughtfully selected accessories, useful finds and details that bring joy. Our story starts here.">ONERA célèbre les objets qui rendent le quotidien un peu plus beau : des accessoires choisis avec soin, des idées utiles et des détails qui font plaisir. Notre aventure commence ici.</p></div></section>
+</main>
+<footer id="contact"><div class="foot-inner"><div><div class="foot-logo">ONERA</div><div class="foot-note">Everyday, beautifully chosen.</div></div><div class="foot-note" data-fr="Une question ou une envie ? Écrivez-nous sur WhatsApp pour connaître les disponibilités et passer commande." data-en="Have a question or found something you love? Message us on WhatsApp to check availability and place an order.">Une question ou une envie ? Écrivez-nous sur WhatsApp pour connaître les disponibilités et passer commande.</div><div class="foot-links"><a href="#" onclick="contactWhatsApp();return false">WHATSAPP</a><a href="#shop" data-fr="BOUTIQUE" data-en="SHOP">BOUTIQUE</a></div></div>
+</footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><aside class="drawer"><div class="drawer-head"><h2 data-fr="Votre panier" data-en="Your bag">Votre panier</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"></div><a href="#" class="checkout" onclick="checkout();return false" data-fr="Commander sur WhatsApp" data-en="Order on WhatsApp">Commander sur WhatsApp</a><p class="hint" data-fr="Les prix et disponibilités seront confirmés par WhatsApp avant validation de votre commande." data-en="Prices and availability will be confirmed on WhatsApp before your order is finalized.">Les prix et disponibilités seront confirmés par WhatsApp avant validation de votre commande.</p></aside></div>
+<script>
+const WHATSAPP_NUMBER = "REPLACE_WITH_YOUR_WHATSAPP_NUMBER"; // Indicatif pays + numéro, sans + ni espaces. Exemple : 261XXXXXXXXX
+let lang='fr', cart={}, active='all';
+const items=[
+{id:1,cat:'accessories',emoji:'👜',tone:'#e8ddd0',name:'Sac à main essentiel',en:'Everyday handbag',desc:'Une silhouette simple pour accompagner vos journées.',ende:'A clean silhouette for everyday plans.'},
+{id:2,cat:'accessories',emoji:'☕',tone:'#e7d9c8',name:'Mini porte-gobelets',en:'Mini cup carrier',desc:'Un petit accessoire pratique à emporter.',ende:'A handy little accessory to take along.'},
+{id:3,cat:'lifestyle',emoji:'🕯️',tone:'#e8e2d7',name:'Bougie douce',en:'Soft glow candle',desc:'Une touche chaleureuse pour votre intérieur.',ende:'A warm touch for your space.'},
+{id:4,cat:'everyday',emoji:'🧴',tone:'#e3e4dc',name:'Gourde minimaliste',en:'Minimal water bottle',desc:'Un essentiel à glisser dans votre sac.',ende:'An everyday essential for your bag.'},
+{id:5,cat:'accessories',emoji:'💍',tone:'#e9dfd2',name:'Pochette bijoux',en:'Jewellery pouch',desc:'Pour garder vos petits trésors bien rangés.',ende:'A neat place for your little treasures.'},
+{id:6,cat:'lifestyle',emoji:'📓',tone:'#e5ddd2',name:'Carnet du quotidien',en:'Everyday notebook',desc:'Pour noter idées, projets et inspirations.',ende:'For notes, plans and little inspirations.'},
+{id:7,cat:'everyday',emoji:'🧺',tone:'#e4ded2',name:'Tote bag pratique',en:'Everyday tote bag',desc:'Un compagnon simple pour vos essentiels.',ende:'A simple companion for your daily essentials.'},
+{id:8,cat:'accessories',emoji:'🔑',tone:'#e8dfd5',name:'Porte-clés signature',en:'Signature keychain',desc:'Un petit détail pour personnaliser vos affaires.',ende:'A small detail to make it yours.'}
+];
+function t(fr,en){return lang==='fr'?fr:en}
+function render(){
+ const list=items.filter(x=>active==='all'||x.cat===active);
+ document.getElementById('products').innerHTML=list.map(x=>`<article class="product"><div class="photo" style="--tone:${x.tone}"><span>${x.emoji}</span></div><small>${t(x.cat==='accessories'?'Accessoires':x.cat==='lifestyle'?'Lifestyle':'Essentiels',x.cat==='accessories'?'Accessories':x.cat==='lifestyle'?'Lifestyle':'Everyday')}</small><h3>${t(x.name,x.en)}</h3><p>${t(x.desc,x.ende)}</p><div class="product-foot"><span class="price">${t('Prix à confirmer','Price on request')}</span><button class="add" onclick="add(${x.id})">${t('AJOUTER +','ADD +')}</button></div></article>`).join('');
+ document.getElementById('count').textContent=Object.values(cart).reduce((a,b)=>a+b,0);
+}
+function filterProducts(cat,btn){active=cat;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');render()}
+function add(id){cart[id]=(cart[id]||0)+1;render();if(document.getElementById('overlay').classList.contains('open'))showCart()}
+function openCart(){document.getElementById('overlay').classList.add('open');showCart()}
+function closeCart(){document.getElementById('overlay').classList.remove('open')}
+function showCart(){let el=document.getElementById('cartItems'),ids=Object.keys(cart);el.innerHTML=ids.length?ids.map(id=>{let x=items.find(i=>i.id==id);return `<div class="cartline"><div>${t(x.name,x.en)}</div><div class="qty"><button onclick="changeQty(${id},-1)">−</button>${cart[id]}<button onclick="changeQty(${id},1)">+</button></div></div>`}).join(''):`<p class="hint">${t('Votre panier est vide pour le moment.','Your bag is empty for now.')}</p>`}
+function changeQty(id,n){cart[id]+=n;if(cart[id]<=0)delete cart[id];render();showCart()}
+function orderText(){let lines=Object.keys(cart).map(id=>{let x=items.find(i=>i.id==id);return `- ${lang==='fr'?x.name:x.en} x${cart[id]}`});return t('Bonjour ONERA, je souhaite commander :','Hello ONERA, I would like to order:')+'%0A'+encodeURIComponent(lines.join('\n'))}
+function checkout(){if(!Object.keys(cart).length){alert(t('Votre panier est vide.','Your bag is empty.'));return}if(WHATSAPP_NUMBER.startsWith('REPLACE')){alert(t('Ajoutez votre numéro WhatsApp dans le fichier du site avant de recevoir des commandes.','Add your WhatsApp number in the website file before receiving orders.'));return}window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+orderText(),'_blank')}
+function contactWhatsApp(){if(WHATSAPP_NUMBER.startsWith('REPLACE')){alert(t('Ajoutez votre numéro WhatsApp dans le fichier du site.','Add your WhatsApp number in the website file.'));return}window.open('https://wa.me/'+WHATSAPP_NUMBER,'_blank')}
+function toggleLang(){lang=lang==='fr'?'en':'fr';document.getElementById('langBtn').textContent=lang==='fr'?'EN':'FR';document.querySelectorAll('[data-fr]').forEach(el=>{let val=el.getAttribute('data-'+lang);if(val)el.textContent=val});render();showCart()}
+render();
+</script>
+</body></html>
